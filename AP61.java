@@ -1,0 +1,15 @@
+public class AP61 {
+    static CLList_XY L1;
+    static CLList_XY L2;
+
+    static void step1() {
+        System.out.println("--- step 1 ---");
+        XY[] data = { new XY(1, 9), new XY(2, 9), new XY(3, 9) };
+        L1 = new CLList_XY(data);
+        System.out.println("L1: " + L1);
+    }
+
+    public static void main(String[] args) {
+        step1();
+    }
+}
