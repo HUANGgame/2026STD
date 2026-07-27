@@ -1,4 +1,4 @@
-class MS {
+class MS implements MTime {
     int m;
     int s;
 
@@ -17,21 +17,21 @@ class MS {
         s = s % 60;
     }
 
-    void addS(int ds) {
+    public void addS(int ds) {
         s = s + ds;
         adjust();
     }
 
-    void incS() {
+    public void incS() {
         addS(1);
     }
 
-    void reset() {
+    public void reset() {
         m = 0;
         s = 0;
     }
 
-    MS mul2() {
+    public MS mul2() {
         MS ans = new MS(m * 2, s * 2);
         ans.adjust();
         return ans;
@@ -41,6 +41,14 @@ class MS {
         MS ans = new MS(m + t2.m, s + t2.s);
         ans.adjust();
         return ans;
+    }
+
+    public MS add(MTime t2) {
+        if (!(t2 instanceof MS)) {
+            throw new Error("Not expected type: " + t2.getClass());
+        }
+
+        return add((MS)t2);
     }
 
     String toStr() {

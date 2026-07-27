@@ -20,25 +20,33 @@ class HMS extends MS {
         return h + "h" + m + "m" + s + "s";
     }
 
-    void reset() {
+    public void reset() {
         h = 0;
         m = 0;
         s = 0;
     }
 
-    HMS mul2() {
+    public HMS mul2() {
         HMS ans = new HMS(h * 2, m * 2, s * 2);
         ans.adjustHM();
         return ans;
     }
 
-    void addS(int intS) {
+    public void addS(int intS) {
         s = s + intS;
         adjust();
         adjustHM();
     }
 
-    HMS add(MS t2) {
+    public HMS add(MTime t2) {
+        if (!(t2 instanceof MS)) {
+            throw new Error("Not expected type: " + t2.getClass());
+        }
+
+        return add((MS)t2);
+    }
+
+    public HMS add(MS t2) {
         System.out.println("// execute HMS::add(MS).");
         int h2 = 0;
         if (t2 instanceof HMS) {
@@ -50,7 +58,7 @@ class HMS extends MS {
         return ans;
     }
 
-    HMS add(HMS t2) {
+    public HMS add(HMS t2) {
         System.out.println("// execute HMS::add(HMS).");
         HMS ans = new HMS(h + t2.h, m + t2.m, s + t2.s);
         ans.adjustHM();
