@@ -5,6 +5,7 @@ class MS {
     MS(int m0, int s0) {
         this.m = m0;
         this.s = s0;
+        adjust();
     }
 
     void adjust() {
