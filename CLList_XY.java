@@ -17,8 +17,14 @@ class CLList_XY {
             tail = new Node_XY(v, null);
             tail.next = tail;
         } else {
-            tail.next = new Node_XY(v, tail.next);
-            tail = tail.next;
+            insAfter(tail, v);
+        }
+    }
+
+    void insAfter(Node_XY p, XY v) {
+        p.next = new Node_XY(v, p.next);
+        if (p == tail) {
+            tail = p.next;
         }
     }
 
