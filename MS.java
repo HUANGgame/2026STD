@@ -26,6 +26,11 @@ class MS {
         addS(1);
     }
 
+    void reset() {
+        m = 0;
+        s = 0;
+    }
+
     MS mul2() {
         MS ans = new MS(m * 2, s * 2);
         ans.adjust();
