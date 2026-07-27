@@ -40,4 +40,8 @@ class MS {
     String toStr() {
         return m + "m" + s + "s";
     }
+
+    public String toString() {
+        return m + "m" + s + "s";
+    }
 }
