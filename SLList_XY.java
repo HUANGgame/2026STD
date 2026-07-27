@@ -1,15 +1,15 @@
-class SLList_XY {
-    private static class Node {
-        XY data;
-        Node next;
+class Node_XY {
+    XY data;
+    Node_XY next;
 
-        Node(XY v, Node n) {
-            data = v;
-            next = n;
-        }
+    Node_XY(XY v, Node_XY n) {
+        data = v;
+        next = n;
     }
+}
 
-    private Node head;
+class SLList_XY {
+    Node_XY head;
 
     SLList_XY() {
         head = null;
@@ -23,13 +23,17 @@ class SLList_XY {
     }
 
     void prepend(XY v) {
-        head = new Node(v, head);
+        head = new Node_XY(v, head);
+    }
+
+    void insAfter(Node_XY p, XY v) {
+        p.next = new Node_XY(v, p.next);
     }
 
     @Override
     public String toString() {
         String ans = "[ ";
-        Node p = head;
+        Node_XY p = head;
         while (p != null) {
             ans = ans + p.data + ", ";
             p = p.next;
