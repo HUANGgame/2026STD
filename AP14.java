@@ -1,5 +1,5 @@
 public class AP14 {
-    public static void main(String[] args) {
+    static void show_MS() {
         MS p1 = new MS(5, 30);
         System.out.println("p1:" + p1);
 
@@ -15,5 +15,15 @@ public class AP14 {
         MS p3 = p1.add(p2);
         p1.incS();
         System.out.println("p1:" + p1 + ", p2:" + p2 + ", p3:" + p3);
+    }
+
+    static void test_MS() {
+        System.out.println("--- test_MS ---");
+
+        show_MS();
+    }
+
+    public static void main(String[] args) {
+        show_MS();
     }
 }
